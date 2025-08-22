@@ -29,3 +29,51 @@ int main(){
     cout << endl;
     return 0;
 }
+
+
+/*
+Solving for 3x3 matrix:
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// 3x3 key matrix (must be invertible mod 26)
+int key[3][3] = {
+    {6, 24, 1},
+    {13, 16, 10},
+    {20, 17, 15}
+};
+
+string plain = "CAT"; // Must be 3 letters
+
+vector<int> encryptHill3(vector<int> block) {
+    vector<int> enc(3, 0);
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            enc[i] += key[i][j] * block[j];
+        }
+        enc[i] %= 26;
+    }
+    return enc;
+}
+
+int main() {
+    // Convert plaintext to numbers
+    vector<int> block(3);
+    for(int i = 0; i < 3; i++) {
+        block[i] = plain[i] - 'A';
+    }
+
+    // Encrypt
+    vector<int> cipherNums = encryptHill3(block);
+    cout << "Plaintext: " << plain << endl;
+    cout << "Ciphertext: ";
+    for(int val : cipherNums) {
+        cout << char(val + 'A');
+    }
+    cout << endl;
+    return 0;
+}
+
+*/
